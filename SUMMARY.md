@@ -1,6 +1,6 @@
 # 目录
 
-* [Introduction](README.md)
+* [简介](README.md)
 * [简介python3](chapter1.md)
 * [讲述python基础语法](chapter2.md)
 * [讲述python继承等高等语法](chapter3.md)
