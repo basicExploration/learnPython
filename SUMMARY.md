@@ -7,5 +7,4 @@
 5. [讲述异步等高级语法](chapter4.md)
 6. [具体实例](chapter5.md)
   1. [爬虫](chapter5-1.md)
-  2.
-  [机器学习](chapter5-2.md)
+  2. [机器学习](chapter5-2.md)
