@@ -6,3 +6,5 @@
 * [讲述python继承等高等语法](chapter3.md)
 * [讲述异步等高级语法](chapter4.md)
 * [具体实例](chapter5.md)
+  * [爬虫](chapter5-1.md)
+  * [机器学习](chapter5-2.md)
