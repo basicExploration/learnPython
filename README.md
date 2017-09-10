@@ -20,10 +20,9 @@
 
 - 各种资料稍后我会放到wiki
 
-- 讨论群：<br><br>![picture about qun](https://github.com/coastroad/resources/blob/master/qun.jpg)
+
 
 ##  给我捐赠：赠人玫瑰，手有余香，我愿意开源，同时也希望您对我的工作加以支持，谢谢。
 
-- ![a](https://github.com/ThomasHuke/donate/blob/master/qq.jpg)
-- ![a](https://github.com/ThomasHuke/donate/blob/master/we-chat.jpg)
-- ![a](https://github.com/ThomasHuke/donate/blob/master/zhi-fu-bao.jpg)
+
+![p](https://github.com/ThomasHuke/donate/blob/master/things.png)
