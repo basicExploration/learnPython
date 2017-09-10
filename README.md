@@ -24,5 +24,5 @@
 
 - 给我捐赠：赠人玫瑰，手有余香，我愿意开源，同时也希望您对我的工作加以支持，谢谢。
 - ![a](https://github.com/ThomasHuke/donate/blob/master/qq.jpg)
-- ![a](https://www.github.com/ThomasHuke/donate/blog/master/we-chat.jpg)
-- ![a](https://www.github.com/ThomasHuke/donate/blog/master/zhi-fu-bao.jpg)
+- ![a](https://www.github.com/ThomasHuke/donate/blob/master/we-chat.jpg)
+- ![a](https://www.github.com/ThomasHuke/donate/blob/master/zhi-fu-bao.jpg)
