@@ -6,5 +6,7 @@
 - [list](./list.md)
 - [tuple](./tuple.md)
 - [if](./if.md)
+- [while](./while.md)
+- [dict](./dict.md)
 
 \>>>>>>>>>>>>>>>>>>[进阶>>>plus](../plus/summary.md)
