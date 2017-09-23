@@ -39,8 +39,8 @@ a2 := []int{1, 2, 3} slice
 
 ```Python
 #/usr/bin/env Python3
-a = [1, 2, 3]
-a = (1, 2, 3)
+a = [1, 2, 3] list
+a = (1, 2, 3) tuple
 ```
 ##### js
 

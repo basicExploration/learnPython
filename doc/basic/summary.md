@@ -8,5 +8,6 @@
 - [if](./if.md)
 - [while](./while.md)
 - [dict](./dict.md)
+- [函数](./func.md)
 
 \>>>>>>>>>>>>>>>>>>[进阶>>>plus](../plus/summary.md)
