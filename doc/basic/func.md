@@ -146,8 +146,32 @@ def file(x, y, *, job, city)
 
 ```Python
 
-def file(x, y, *name, job, city) # x,y是位置参数，name是可变参数(list tuple) job和city是关键字参数。
+def file(x, y, *name, job, city) # x,y是位置参数，name是可变参数(list tuple) job和city是关键字参数
 ```
+## 参数组合
 
+参数需要一定的顺序
+必选参数，默认参数，可变参数，命名关键字参数，关键字参数
 
-使用命名关键字参数时，要特别注意，如果没有可变参数，就必须加一个*作为特殊分隔符。如果缺少*，Python解释器将无法识别位置参数和命名关键字参数
+> 当中它们有的可以省略，但是顺序要按照这个顺序来排列。
+
+举个例子
+
+```Python
+def file(x, y = 12, *a,**j):
+    pass
+    return
+a = [1, 2, 2]
+或者是 a = (1, 2, 3)
+j = {'a':12}
+file(12, 12, 12,j)
+```
+file(12, a, j)是错误的中间不能间隔
+另外例如*a
+可以不传入一个list或者tuple可以直接传入 file(1,2,'12','12',city='12',name='12')
+
+```Python
+
+def file(x,b = 12, *, a, **a):
+file(12, 45, a=12, d=12, c=12)
+```
