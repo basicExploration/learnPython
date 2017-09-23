@@ -120,3 +120,34 @@ def calc(*numbers):
 0
 
 ```
+
+## 关键字参数
+
+可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict
+```python
+def person(name, age, **kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+
+person('thomashuke', 30, {'nu':12, 'rr':1221})
+# 或者是
+a = {'sd':12, 'dsdsds':1122}
+person(1, 2, a)
+```
+要注意这个关键字参数在内部是组合为一个dict然而前面那个可变参数被组合成一个tuple，或者是list
+
+## 命名关键字参数
+
+对于关键字参数，函数的调用者可以传入任意不受限制的关键字参数。
+
+```Python
+def file(x, y, *, job, city)
+```
+那么你后面只能使用job和city
+
+```Python
+
+def file(x, y, *name, job, city) # x,y是位置参数，name是可变参数(list tuple) job和city是关键字参数。
+```
+
+
+使用命名关键字参数时，要特别注意，如果没有可变参数，就必须加一个*作为特殊分隔符。如果缺少*，Python解释器将无法识别位置参数和命名关键字参数
