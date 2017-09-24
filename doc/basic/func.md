@@ -175,3 +175,18 @@ file(12, a, j)是错误的中间不能间隔
 def file(x,b = 12, *, a, **a):
 file(12, 45, a=12, d=12, c=12)
 ```
+
+**最神奇的是通过一个tuple和dict，你也可以调用上述函数**
+
+```Python
+def file(a, b = 12, *arg, **args):
+    print(a, b, arg, args)
+    return
+arg = (1, 2, 3, 4)
+args = {'a':12, 'b': 12}
+    file(*arg, **args)
+    1, 2, (3, 4) {'a':12, 'b':12}
+    ```
+    说起来函数的参数这方面Python也是相当的灵活。
+
+    
