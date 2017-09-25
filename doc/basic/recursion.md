@@ -57,8 +57,9 @@ def file(n):
     retrun n * file(n - 1)
 ```
 ```Python
-def filePluss(n,result = 0):
+def filePluss(n,result = 1):
     if n == 1:
         return result
-    return filePluss(n - 1, )
+    return filePluss(n - 1,result * n )
 ```
+但是Python等编程语言并没有做的很好在尾递归优化这方面，所以还是有可能会出现一些溢出的可能性。
