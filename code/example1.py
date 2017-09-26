@@ -9,3 +9,5 @@ file()
 
 # x , y  1 3
 # x , y  1 4
+
+print([x + x for x in range(1, 12)])
