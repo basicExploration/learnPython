@@ -172,3 +172,34 @@ return x * x
 但是 Python对匿名函数的支持有限，只有一些简单的情况下可以使用匿名函数。
 
 ## 装饰器
+
+现在，假设我们要增强某个函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改某个函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。
+
+- @语法
+
+```Python
+
+def log(func):
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+
+观察上面的log，因为它是一个decorator，所以接受一个函数作为参数，并返回一个函数。我们要借助Python的@语法，把decorator置于函数的定义处：
+
+@log
+def now():
+    print('2015-3-25')
+调用now()函数，不仅会运行now()函数本身，还会在运行now()函数前打印一行日志：
+
+>>> now()
+call now():
+2015-3-25
+把@log放到now()函数的定义处，相当于执行了语句：
+
+now = log(now)
+```
+其实可以这么理解
+@log其实就是说log单做容器，让下面正在定义的函数当做参数传入。
+
+并且我们要做的还是调用原来的定义的那个函数就OK了。并没有别的异常。
