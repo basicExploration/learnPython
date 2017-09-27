@@ -79,3 +79,44 @@ StopIteration
 也就是说它每次使用next方法当做容器并且运行到yield就停止，再次调用next接着上次的继续运行。跟js中是一样的。
 
 定义的函数，其次每次返回的都是generator对象。
+
+
+我们基本上从来不会用next()来获取下一个返回值，而是直接使用for循环来迭代
+
+```python
+
+def file():
+    print('step1')
+    yield 1
+    print('step2')
+    yield 2
+    return '应该停止了'
+    print('2')
+    yield 123
+
+
+for a in file():
+    pass
+
+```
+
+证明了几点
+
+- return后面肯定要停止。
+- yield要停止一次
+- for循环可以直接遍历generator无需再使用next
+- 使用for循环无法取得return和yield返回的值
+
+对于最后一个问题，我们可以使用这个办法解决。
+
+```python
+
+while true:
+    try:
+        x = file()
+        print('数据是：',x)
+    except StopIteration as e:
+        print('数据是:',e.value)
+        break
+
+```
