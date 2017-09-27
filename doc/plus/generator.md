@@ -31,7 +31,7 @@ StopIteration
 
 如果一个函数定义中包含yield关键字，那么这个函数就不再是一个普通函数，而是一个generator：
 
-> js中需要将函数名前面添加 * 例如 \*function age(){}
+> js中需要将函数名前面添加 * 例如 function \*age(){}
 
 ```python
 def file():
