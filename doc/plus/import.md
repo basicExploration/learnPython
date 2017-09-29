@@ -161,3 +161,68 @@ for _ in range(n):
 - 双下划线是不可被子类继承
 
 也就是说__ 是private _ 是 protect，也就是说`__`私有性要大于`_`
+
+
+## 关于导入的进一步解释
+
+- 如果是系统内部的模块，直接使用`import xx`即可，因为它存在于系统会自动查找的路径中，并且通过pip下载的第三方模块也会被加入可寻找到的路径中。
+
+- 如果是本地模块
+## from module import sm 和import的区别
+
+区别就是 前者只是引入了一小部分，后者完全引入。
+
+## sys.path.append('')
+
+首先要明白它是运行时添加，运行过后就没了，所以也不存在什么缓存什么，
+
+还有使用它的时候要先引入sys包。
+
+
+## \__name__属性
+
+一个模块被另一个程序第一次引入时，其主程序将运行。如果我们想在模块被引入时，模块中的某一程序块不执行，我们可以用__name__属性来使该程序块仅在该模块自身运行时执行。
+
+```py
+#!/usr/bin/python3
+# Filename: using_name.py
+
+if __name__ == '__main__':
+   print('程序自身在运行')
+else:
+   print('我来自另一模块')
+运行输出如下：
+$ python using_name.py
+程序自身在运行
+$ python
+>>> import using_name
+我来自另一模块
+>>>
+
+```
+**说明： 每个模块都有一个__name__属性，当其值是'__main__'时，表明该模块自身在运行，否则是被引入。**
+
+
+下面插入一行来自注明Python项目 requests的代码，看看是如何导入模块的。
+
+```py
+
+import copy
+import time
+import calendar
+import collections
+
+from ._internal_utils import to_native_string
+from .compat import cookielib, urlparse, urlunparse, Morsel
+
+try:
+    import threading
+except ImportError:
+    import dummy_threading as threading
+
+
+class MockRequest(object):
+```
+我们注意看，前几个都是在路径中可以取到的模块，也就是系统内置模块或者是pip下载的第三方模块。
+
+下面的`from .`或者是 `.compat`意思都是在本包内部，从一个模块引入另一个模块.
