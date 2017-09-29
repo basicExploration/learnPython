@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+_author_ = 'ThomasHuke[thomashuke@icloud.com]'
+
 def file(n):
     t = []
     while n < 99:
