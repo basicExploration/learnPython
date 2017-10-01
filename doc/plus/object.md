@@ -219,3 +219,72 @@ True
 ```
 
 这个就是关于继承关系的。前者是后者的实例对象。
+
+
+## dir()
+
+如果要获得一个对象的所有属性和方法，可以使用dir()函数，它返回一个包含字符串的list
+
+```py
+
+dir(object)
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+>>>
+
+```
+
+
+我们可以看到很多 __xx__例如 __dir__ 其实我们使用的全局函数不过是自动来使用系统内置的object类的__dir__方法而已。
+
+举个例子
+
+```py
+
+在len()函数内部，它自动去调用该对象的__len__()方法，所以，下面的代码是等价的：
+
+>>> len('ABC')
+3
+>>> 'ABC'.__len__()
+3
+
+```
+
+##### 这里要提到一个小小的技巧了
+
+假如你不想让使用dir()自动调用的是object的那个方法，其实也好办，刚才说过了继承，你的子类的方法跟父类一样即可，这样使用的dir()调用对象的__dir__的时候就不是使用的object类的方法了，使用的是你定义的类的方法。
+
+```py
+
+class Person(object):
+    def __dir__(self):
+        return 'thomashuke'
+dir(Person())
+
+```
+但是要注意，这个地方还是会按照系统的意愿会有深层次的调用的，所以不建议随意更改。
+
+
+## getattr()、setattr()以及hasattr()
+
+- getattr()获取实例对象的某个属性
+- setattr()设置实例对象的某个属性的内容
+- hasattr()查看实例对象是否有某个属性
+
+```py
+
+class Stuent(object):
+    def __init__(self, name, year):
+        self.name = name
+        self.year = year
+
+s = Student()
+
+hasattr(s, 'name')
+getattr(s, 'name', 'error') # 第三个参数的意思是 如果发生错误取不到值的话，就返回一个自定义的内容.
+
+```
+
+想知道为什么前面的s不用加‘’然而后面的name一定要加引号呢？那是因为前面用的是变量，然而后面用的是一个变量的具体名称，当然这个用法很常见，也很符合自然规律。
+
+
+## 实例对象的属性和类的属性
