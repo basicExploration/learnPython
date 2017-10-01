@@ -288,3 +288,18 @@ getattr(s, 'name', 'error') # 第三个参数的意思是 如果发生错误取�
 
 
 ## 实例对象的属性和类的属性
+
+```py
+class People(object):
+    name = 'ThomasHuke'
+    def __init__(self, name, year)
+        self.name = name
+        self.year = year
+s = People('dd', 12)
+s.name
+>>> dd
+del s.name # 删除了实例对象的name属性
+>>> ThomasHuke
+
+```
+这说明了 1 class的属性没有实例对象的属性地位高，第二实例可以很容易的使用类的属性，第三类的属性的定义其实就是在类中写就OK了。并没有说明其特殊的地方。
