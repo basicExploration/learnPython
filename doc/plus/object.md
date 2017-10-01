@@ -177,3 +177,45 @@ isinstance(a, list)
 ## 静态语言和动态语言
 
 `不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子` 这是动态语言中的比较灵活的地方，比如说定义一个参数，这个参数要求是这个类的实例对象，因为下一步就是要求这个实例对象运行它的run()方法，但是如果传入进入一个对象它并不是实例对象，但是它也拥有run方法，系统也是认可的，这就是鸭子类型，长得像就是一样。但是Java等静态类型则不是，它要求的很严格，说是啥就是啥一点也不能有马虎。
+
+## type()
+
+判断这个对象拥有什么属性什么方法等
+
+```py
+
+type(123)
+<class 'int'>
+>>> type(a)
+<class 'list'>
+>>> type('12')
+<class 'str'>
+
+```
+```py
+
+>>> import types
+>>> def fn():
+...     pass
+...
+>>> type(fn)==types.FunctionType
+True
+>>> type(abs)==types.BuiltinFunctionType
+True
+>>> type(lambda x: x)==types.LambdaType
+True
+>>> type((x for x in range(10)))==types.GeneratorType
+True
+
+```
+
+## isinstance()
+
+```py
+
+isinstance(a, list)
+True
+
+```
+
+这个就是关于继承关系的。前者是后者的实例对象。
