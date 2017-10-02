@@ -65,3 +65,5 @@ with open('/Users/michael/test.txt', 'w') as f:
 3. 读是read() 写是write()
 
 使用with语句操作文件IO是个好习惯~!
+
+## stringIO和byteIO
