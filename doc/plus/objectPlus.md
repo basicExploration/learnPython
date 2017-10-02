@@ -111,3 +111,55 @@ class Animal(object, World):
 其实这就是多重继承。
 
 使用都充继承就避免了继承树那种庞大的继承关系，需要什么功能继承就是了，简单明了。
+
+联系到js中的多重继承,多么的不优雅，，，，但是 好特么灵活，它的实现是这样的原理
+
+a要继承 bcd类，那么先封装一个x类，x包括了bcd，使用的时候直接让a继承x就相当于继承了bcd。我曹。反正我感觉这特么的是嘛嘛嘛。。。。好吧，太过于灵活的语言就是这个吊样。。。
+
+## __str__
+
+管理打印
+
+## __iter__
+
+```py
+class Fib(object):
+def __init__(self):
+    self.a, self.b = 0, 1 # 初始化两个计数器a，b
+
+def __iter__(self):
+    return self # 实例本身就是迭代对象，故返回自己
+
+def __next__(self):
+    self.a, self.b = self.b, self.a + self.b # 计算下一个值
+    if self.a > 100000: # 退出循环的条件
+        raise StopIteration()
+    return self.a # 返回下一个值
+class Fib(object):
+def __init__(self):
+    self.a, self.b = 0, 1 # 初始化两个计数器a，b
+
+def __iter__(self):
+    return self # 实例本身就是迭代对象，故返回自己
+
+def __next__(self):
+    self.a, self.b = self.b, self.a + self.b # 计算下一个值
+    if self.a > 100000: # 退出循环的条件
+        raise StopIteration()
+    return self.a # 返回下一个值
+```
+
+如果一个类想被用于for ... in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。
+
+
+## __getitem__
+
+要表现得像list那样按照下标取出元素，需要实现__getitem__()方法
+
+## __getattr__
+
+当调用不存在的属性时，比如score，Python解释器会试图调用__getattr__(self, 'score')来尝试获得属性，这样，我们就有机会返回score的值
+
+## __call__
+
+任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用,当然其实就是调用的class中定义的那个__call__
