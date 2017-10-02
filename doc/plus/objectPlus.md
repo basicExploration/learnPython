@@ -190,3 +190,31 @@ class ClassName(object):
 这种style了，直接使用
 
 `type(ClassName, 继承的父class, 自己的属性方法)`,好吧，我不是很喜欢这么生成一个类。
+
+## 动态定义class----metaclass
+
+按照默认习惯，metaclass的类名总是以Metaclass结尾，以便清楚地表示这是一个metaclass
+
+```py
+class ListMetaclass(type):
+    def __new__(cls, name, bases, attrs):
+        attrs['add'] = lambda self, value: self.append(value)
+        return type.__new__(cls, name, bases, attrs)
+```
+
+有了ListMetaclass，我们在定义类的时候还要指示使用ListMetaclass来定制类，传入关键字参数metaclass：
+
+```py
+class MyList(list, metaclass=ListMetaclass):
+    pass
+```
+
+__new__()方法接收到的参数依次是：
+
+- 当前准备创建的类的对象；
+
+- 类的名字；
+
+- 类继承的父类集合；
+
+- 类的方法集合。
