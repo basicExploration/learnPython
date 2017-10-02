@@ -26,3 +26,47 @@ print('fdfdfd')
 ## logging 模块
 
 内置的logging模块，相当强大，不错不错。
+
+## raise
+
+raise的意思是抛出，其实可以类比 throw。
+
+```py
+
+class FooError(ValueError):
+    pass
+
+def foo(s):
+    n = int(s)
+    if n==0:
+        raise FooError('invalid value: %s' % s)
+    return 10 / n
+
+foo('0')
+
+```
+
+```py
+def bar():
+    try:
+        foo('0')
+    except ValueError as e:
+        print('ValueError!')
+        raise
+
+bar()
+
+```
+
+在这个print后面我们还用了raise，这是为什么呢？其实就是我们在打印了错误后向上层抛出了错误。
+
+## pdb
+
+启动Python的调试器pdb，让程序以单步方式运行，可以随时查看运行状态。
+
+$ python3 -m pdb xx.py
+
+
+## pdb.set_trace()
+
+这个方法也是用pdb，但是不需要单步执行，我们只需要import pdb，然后，在可能出错的地方放一个pdb.set_trace()，就可以设置一个断点
