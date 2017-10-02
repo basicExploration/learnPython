@@ -70,3 +70,27 @@ $ python3 -m pdb xx.py
 ## pdb.set_trace()
 
 这个方法也是用pdb，但是不需要单步执行，我们只需要import pdb，然后，在可能出错的地方放一个pdb.set_trace()，就可以设置一个断点
+
+## 文档测试
+
+当我们编写注释时，如果写上这样的注释：
+
+```py
+
+def abs(n):
+    ''' # 使用这个符号，里面的信息只有测试的时候才会被调用。一般的时候这些代码并不会执行。
+    Function to get absolute value of number.
+
+    Example:
+
+    >>> abs(1)
+    1
+    >>> abs(-1)
+    1
+    >>> abs(0)
+    0
+    '''
+    return n if n >= 0 else (-n)
+```
+
+Python内置的“文档测试”（doctest）模块可以直接提取注释中的代码并执行测试。
