@@ -163,3 +163,13 @@ def __next__(self):
 ## __call__
 
 任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用,当然其实就是调用的class中定义的那个__call__
+
+## 枚举类
+```py
+from enum import Enum
+
+Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+
+```
+
+这样我们就获得了Month类型的枚举类，可以直接使用Month.Jan来引用一个常量，或者枚举它的所有成员
