@@ -173,3 +173,20 @@ Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', '
 ```
 
 这样我们就获得了Month类型的枚举类，可以直接使用Month.Jan来引用一个常量，或者枚举它的所有成员
+
+## type()
+
+类比js 你可以认为是 object.creat()创建一个新的对象。
+
+也就是说不需要你使用
+```py
+class ClassName(object):
+    """docstring for ."""
+    def __init__(self, arg):
+        super(, self).__init__()
+        self.arg = arg
+
+```
+这种style了，直接使用
+
+`type(ClassName, 继承的父class, 自己的属性方法)`,好吧，我不是很喜欢这么生成一个类。
