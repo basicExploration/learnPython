@@ -67,3 +67,48 @@ with open('/Users/michael/test.txt', 'w') as f:
 使用with语句操作文件IO是个好习惯~!
 
 ## stringIO和byteIO
+
+顾名思义，stringIO和byteIO就是在内存之中读取信息前者是读取str后者是读取二级制信息。
+
+写入。
+
+
+```python
+from io import StringIO
+f = StringIO()
+f.write('hello')
+print(f.getvalue())
+```
+
+读取
+
+```py
+f = StringIO('dddd')
+f.read()
+```
+
+ByteIO方法类似于StringIO
+
+```py
+from io import ByteIO
+b = ByteIO()
+b.write('abb'.encode('utf-8'))
+print(b.getvalue())
+```
+读取时一样的。
+
+```
+b = ByteIO('b'xe4xb8xadxe6x96x87')
+b.read(size)
+
+```
+
+## os
+
+其实无论是shell还是nodejs还是golang还是如今的Python它调用的os都是系统底层给它的接口，是你的操作系统的作用，语言是没有这个能耐的。毕竟你的操作系统才是你运行的根本。
+
+- os.name()能显示出来是类unix还是win
+
+- os.uname()能准确的显示出来是你的操作系统，不过用之前应该先用os.name因为这个apiwin不提供。
+
+- os.environ 提供了环境变量。
