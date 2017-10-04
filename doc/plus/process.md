@@ -54,3 +54,16 @@ else:
 ## 多线程
 
 Python的标准库提供了两个模块：\_thread和threading，\_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。
+
+## 分布式
+
+Python中的分布式实现起来还是比较简单的。
+
+
+Python的multiprocessing模块不但支持多进程，其中managers子模块还支持把多进程分布到多台机器上。一个服务进程可以作为调度者，将任务分布到其他多个进程中，依靠网络通信。由于managers模块封装很好，不必了解网络通信的细节，就可以很容易地编写分布式多进程程序。
+
+
+
+```py
+
+```
